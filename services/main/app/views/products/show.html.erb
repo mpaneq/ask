@@ -1,0 +1,38 @@
+<body>
+<p>
+<div class="row">
+<div class="col-md-12 col-left-offset-3">
+
+<div class="center jumbotron "> 
+    <h1 style="font-weight: bold">Szczegóły</h1>
+	<h1>produktu</h1>
+</div>
+</p>
+<body>
+
+<p>Nazwa: </p>
+<div style="margin: 10px">
+<p1><%= @product.name %></p1>
+</div>
+<p>Opis: </p>
+<div style="margin: 10px">
+<p1><%= @product.description %></p1>
+</div>
+<p>Ilość dostępnych sztuk: </p>
+<div style="margin: 10px">
+<p1><%= @product.quantity %></p1>
+</div>
+<p>Cena za sztukę: </p>
+<div style="margin: 10px">
+<p1><%=@product.price %> zł</p1>
+</div>
+</body>
+
+
+<div style="margin: 10px; font-size: 25px;">
+<%= form_with url: "/orders", method: :post do |f| %>
+    <%= f.label :quantity, "Podaj ilość sztuk: " %>
+    <p style="display: inline-block"><%= f.text_field :quantity %></p>
+    <%= hidden_field_tag(:id, @product.id) %>
+    <p style="display: inline-block"><%= f.submit "Dodaj produkt do zamówienia", class: "btn btn-primary btn-lg" %><p> <% end %>
+</div>

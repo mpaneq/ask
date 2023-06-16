@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<%= csrf_meta_tags %>
+	<%= csp_meta_tag %>
+	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"></script>
+		<![endif]-->
+  </head>
+  <body>
+    <header class="navbar navbar-fixed-top navbar-inverse"> 
+      <div class="container">
+        <%= link_to "pollegro", root_path, id: "logo" %> 
+          <nav>
+            <ul class="nav navbar-nav navbar-right"> 
+              <li><%= link_to "Strona główna", root_path %></li> 
+              <li><%= link_to "Pomoc", root_path %></li> 
+              <li><%= link_to "Zaloguj się", root_path %></li>
+            </ul> 
+          </nav>
+      </div>
+      </header>
+    <%= yield %>
+  </body>
+</html>

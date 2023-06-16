@@ -1,0 +1,53 @@
+<body>
+<p>
+<div class="row">
+<div class="col-md-12 col-left-offset-3">
+
+<div class="center jumbotron "> 
+    <h1 style="font-weight: bold">Moje</h1>
+	<h1>zamówienie</h1>
+</div>
+
+<% if(@order.present? && @order["content"].present?) %>
+  <div >
+  <table class="table" >
+    <thead>
+      <tr>
+        <th> Lp. </th>
+        <th> Nazwa</th>
+        <th> Liczba sztuk</th>
+        <th> Cena (zł) </th>  
+        <th> Opcje </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @order["content"].each.with_index(1) do |item, index| %>
+        <tr>
+          <td><%= index %></td>
+          <td><%= item["item"]["name"] %></td>
+          <td><%= item["quantity"] %></td>
+          <td><%= (item["item"]["price"] * item["quantity"]).round(2)%></td>
+          <td><%= link_to "Usuń", edit_order_path(order_id: @order["id"], item_id: item["item"]["id"]), method: :put, params: { order_id: @order["id"], item_id: item["id"] }%></td>
+        </tr>
+      <% end %>
+          <tr>
+          <td></td>
+          <td></td>
+          <td style="font-weight: bold">Łączna cena:</td>
+          <td style="font-weight: bold"><%=  @order["content"].inject(0) { |sum,item| sum + (item["item"]["price"] * item["quantity"]) }.round(2) %> zł</td>
+          <td></td>
+        </tr>
+    </tbody>
+    </div>
+    </table>
+      <div type="button" class="btn btn-dark", style="font-size: 20px; float:right; padding-right: 355px;">
+    <%= button_to "Opłać zamówienie", payments_path, :class => "btn btn-primary btn-lg", method: :post, params: { order_id: @order["id"] }%>
+  </div>
+<% else %>
+  <div style="text-align: center; font-size: 50px;">Brak aktualnych zamówień. Zachęcamy do skorzystania z naszej wyszukiwarki.</div>
+<% end %>
+</body>
+</div>
+
+

@@ -1,0 +1,20 @@
+<body>
+<p>
+<div class="row">
+<div class="col-md-12 col-left-offset-3">
+
+<div class="center jumbotron"> 
+    <h1 style="font-weight: bold">Status</h1>
+	<h1>zamówienia</h1>
+</div>
+</p>
+</body>
+
+<div style="text-align: center; font-size: 45px;">Zamówienie zostało opłacone. Dziękujemy za skorzystanie z Pollegro.</div>
+
+<div style="float:right; padding-right: 650px; font-size: 50px">
+    <%= button_to "Pobierz fakturę", invoice_path, :class => "btn btn-primary btn-lg", method: :get, params: {order_id: @order_id} %>
+</div>
+<div style="float:center; padding-left: 650px; font-size: 50px">
+    <%= button_to "Strona główna", '/', :class => "btn btn-primary btn-lg", method: :get%>
+</div>
