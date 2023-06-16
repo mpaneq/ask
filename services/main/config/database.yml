@@ -5,17 +5,17 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  # host: postgres
-  # database: internet_shop
-  # username: db_user
-  # password: db_pass
+  host: postgres
+  database: internet_shop
+  username: db_user
+  password: db_pass
 
 development:
   <<: *default
-  # database: internet_shop
-  # host: postgres
-  # username: db_user
-  # password: db_pass
+  database: internet_shop
+  host: postgres
+  username: db_user
+  password: db_pass
 
 test:
   <<: *default
