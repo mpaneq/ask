@@ -48,6 +48,10 @@ gem 'pry'
 
 gem 'rest-client'
 
+gem 'lograge'
+gem 'logstash-event'
+gem 'logstash-logger'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
