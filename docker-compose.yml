@@ -89,3 +89,11 @@ services:
       - elasticsearch:elasticsearch
     depends_on:
       - elasticsearch
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "9000:3000"
+    volumes:
+      - ./services/grafana/dashboard.yaml:/etc/grafana/provisioning/dashboards/main.yaml
+      - ./services/grafana/dashboards:/var/lib/grafana/dashboards
