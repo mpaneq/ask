@@ -9,8 +9,6 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
       - '${POSTGRES_PORT}:${POSTGRES_PORT}'
-    volumes: 
-      - ./services/postgres/data:/var/lib/postgresql/data:rw
     healthcheck:
       test: ["CMD", "pg_isready", "-q", "-d", "${POSTGRES_DB_NAME}" , "-U", "${POSTGRES_USERNAME}"]
       interval: 10s
