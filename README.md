@@ -1,4 +1,4 @@
-# Projekt w ramach przedmiotu Administracja systemów komputerowych
+# Internet shop
 
 The goal is to create an internet shop, where people will be able to put up their items for sale or purchase other people's items. People have their internal wallets with virtual money which they use for trading. Integration with real payment systems is beyond the concern of this project. Primary goal is to create a distributed system with microservice architecture where services may communicate with each other.
 
